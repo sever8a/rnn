@@ -16,13 +16,13 @@ y_test = to_categorical(y_test)
 
 # Construir el modelo de red neuronal fully connected
 model_fc = models.Sequential([
-    layers.Dense(512, activation='relu', input_shape=(28 * 28,)),
-    layers.Dense(256, activation='relu'),
+    layers.Dense(512, activation='sigmoid', input_shape=(28 * 28,)),
+    layers.Dense(256, activation='sigmoid'),
     layers.Dense(10, activation='softmax')  # 10 clases (dígitos del 0 al 9)
 ])
 
 # Compilar el modelo
-model_fc.compile(optimizer='adam',
+model_fc.compile(optimizer='sgd',
                  loss='categorical_crossentropy',
                  metrics=['accuracy'])
 
