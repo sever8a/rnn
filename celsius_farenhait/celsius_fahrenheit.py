@@ -37,6 +37,10 @@ for epoch in range(epochs):
     if (epoch + 1) % 100 == 0:
         print(f'Epoch [{epoch + 1}/{epochs}], Loss: {loss.item():.4f}')
 
+# Guardar el modelo
+torch.save(model.state_dict(), 'temperature_conversion_model.pth')
+print('Modelo guardado como temperature_conversion_model.pth')
+
 # Probar la red neuronal
 model.eval()
 test_celsius = torch.tensor([[100.0]], dtype=torch.float32)
